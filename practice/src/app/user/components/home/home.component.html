@@ -1,0 +1,31 @@
+<h4>
+    Value: {{value | number}}
+</h4>
+
+<h4>
+    PI: {{pi | number :'3.1-5'}}
+</h4>
+
+<hr>
+
+<p>Money: {{value | currency}}</p>
+<p>Money: {{value | currency:'INR'}}</p>
+
+<hr>
+<h3>
+    Date: {{today| date}}
+</h3>
+
+<h3>
+    Date: {{today| date:'medium'}}
+</h3>
+
+<h3>
+    Date: {{today| date: 'longDate'}}
+</h3>
+
+<h3>
+    Time: {{today| date: 'shortTime'}}
+</h3>
+<hr>
+<h2>{{now}}</h2>

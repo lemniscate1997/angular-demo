@@ -1,0 +1,14 @@
+<div class="header" *ngIf="navbar">
+    <app-header></app-header>
+</div>
+
+<div class="sidebar" *ngIf="sidebar">
+    <app-sidebar></app-sidebar>
+</div>
+<div class="main-content">
+    <router-outlet (activate)="changeOfRoute()"></router-outlet>
+</div>
+
+<div class="footer">
+    <app-footer></app-footer>
+</div>

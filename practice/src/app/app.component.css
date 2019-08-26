@@ -1,0 +1,38 @@
+.main-content {
+    padding-left: 200px;
+    margin-left: 0px;
+    margin-top: 80px;
+}
+
+.sidebar {
+    width: 194px;
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    left: 0px;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+.header {
+    left: 0;
+    right: 0;
+    top: 0;
+    min-height: 50px;
+    position: fixed;
+    box-shadow: 1px 0.5px 6px 0px white;
+    background-color: darkgrey;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.footer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    min-height: 50px;
+    background-color: darkgrey;
+    text-align: center;
+}
