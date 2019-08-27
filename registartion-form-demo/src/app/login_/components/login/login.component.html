@@ -1,0 +1,32 @@
+<div class="card container form mx-5 mt-5">
+    <div class="row mx-5">
+        <div class="col-sm-12 my-5">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="center">
+                    <p><b><u>
+                <h3>Login</h3>
+              </u></b></p>
+                </div>
+                <div class="form-group">
+                    <label class="pl-1" for="email">EmailID</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter emailId">
+                    <div class="pl-2" *ngIf="!!control.email.invalid && (!!control.email.dirty || !!control.email.touched)">
+                        <div *ngIf="!!control.email.errors.required"><small class="red">EmailID is required</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+                    <div class="pl-2" *ngIf="!!control.password.invalid && (!!control.password.dirty || !!control.password.touched)">
+                        <div *ngIf="!!control.password.errors.required"><small class="red">Password is required</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="btn btn-dark" value="LogIn" [disabled]="loginForm.invalid || submitted" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
