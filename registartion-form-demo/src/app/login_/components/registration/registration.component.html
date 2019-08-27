@@ -1,0 +1,85 @@
+<div class="card container form mx-5 mt-5">
+    <div class="row mx-5">
+        <div class="col-sm-12 my-5" *ngIf="!submitted">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="center">
+                    <p><b><u>
+                <h3>Registration</h3>
+              </u></b></p>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="name">Name</label>
+                    <input type="name" class="form-control" formControlName="name" placeholder="Enter name">
+                    <div *ngIf="!!control.name.invalid && (!!control.name.dirty || !!control.name.touched)" class="pl-2">
+                        <div *ngIf="!!control.name.errors.required"><small class="red">Name is required.</small></div>
+                        <div *ngIf="!!control.name.errors.minlength"><small class="red">Name must be atleast 3 character
+                long.</small></div>
+                        <div *ngIf="!!control.name.errors.maxlength"><small class="red">Name must be atmost 15 character
+                long.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="email">EmailID</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter emailId">
+                    <div *ngIf="!!control.email.invalid && (!!control.email.dirty || !!control.email.touched)" class="pl-2">
+                        <div *ngIf="!!control.email.errors.required"><small class="red">EmailID is required.</small></div>
+                        <div *ngIf="!!control.email.errors?.pattern"><small class="red">EmailID must be in valid format.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+                    <div *ngIf="!!control.password.invalid && (!!control.password.dirty || !!control.password.touched)" class="pl-2">
+                        <div *ngIf="!!control.password.errors.required"><small class="red">Password is required.</small></div>
+                        <div *ngIf="!!control.password.errors.minlength"><small class="red">Password must be atleast 8 character
+                long.</small></div>
+                        <div *ngIf="!!control.password.errors?.pattern && !control.password.errors.minlength"><small class="red">Password is to weak.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="mobile">Mobile</label>
+                    <input type="mobile" class="form-control" formControlName="mobile" placeholder="Enter Mobile Number">
+                    <div *ngIf="!!control.mobile.invalid && (!!control.mobile.dirty || !!control.mobile.touched)" class="pl-2">
+                        <div *ngIf="!!control.mobile.errors.required"><small class="red">Mobile number is required.</small></div>
+                        <div *ngIf="!!control.mobile.errors?.pattern"><small class="red">Enter valid mobile number.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group pl-1">
+                    <input type="submit" class="btn btn-success" value="Register" [disabled]="registrationForm.invalid || submitted" />
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-12 my-5" *ngIf="submitted">
+            <div class="row">
+                <div class="col-3">
+                    <b>Name:</b>
+                </div>
+                <div class="col">
+                    {{data.name}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <b>Email:</b>
+                </div>
+                <div class="col">
+                    {{data.email}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <b>Mobile:</b>
+                </div>
+                <div class="col">
+                    {{data.mobile}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
