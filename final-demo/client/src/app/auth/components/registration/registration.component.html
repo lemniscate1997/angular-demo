@@ -1,0 +1,82 @@
+<div class="card container form mx-auto mt-5">
+    <div class="row mx-5">
+        <div class="col-sm-12 my-5">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="center">
+                    <p><b><u>
+                <h3>SignUp</h3>
+              </u></b></p>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="firstname">FirstName</label>
+                    <input type="firstname" class="form-control" formControlName="firstname" placeholder="Enter First name">
+                    <div *ngIf="!!control.firstname.invalid && (!!control.firstname.dirty || !!control.firstname.touched)" class="pl-2">
+                        <div *ngIf="!!control.firstname.errors.required"><small class="red">FirstName is required.</small></div>
+                        <div *ngIf="!!control.firstname.errors.minlength"><small class="red">FirstName must be atleast 3 character
+                long.</small></div>
+                        <div *ngIf="!!control.firstname.errors.maxlength"><small class="red">FirstName must be atmost 15 character
+                long.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="lastname">LastName</label>
+                    <input type="lastname" class="form-control" formControlName="lastname" placeholder="Enter name">
+                    <div *ngIf="!!control.lastname.invalid && (!!control.lastname.dirty || !!control.lastname.touched)" class="pl-2">
+                        <div *ngIf="!!control.lastname.errors.required"><small class="red">LastName is required.</small></div>
+                        <div *ngIf="!!control.lastname.errors.minlength"><small class="red">LastName must be atleast 3 character
+                long.</small></div>
+                        <div *ngIf="!!control.lastname.errors.maxlength"><small class="red">LastName must be atmost 15 character
+                long.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="email">EmailID</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="Enter emailId">
+                    <div *ngIf="!!control.email.invalid && (!!control.email.dirty || !!control.email.touched)" class="pl-2">
+                        <div *ngIf="!!control.email.errors.required"><small class="red">EmailID is required.</small></div>
+                        <div *ngIf="!!control.email.errors?.pattern"><small class="red">EmailID must be in valid format.</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+                    <div *ngIf="!!control.password.invalid && (!!control.password.dirty || !!control.password.touched)" class="pl-2">
+                        <div *ngIf="!!control.password.errors.required"><small class="red">Password is required.</small></div>
+                        <div *ngIf="!!control.password.errors?.notValid"><small class="red">{{control.password.errors.notValid}}</small></div>
+                        <!-- <div *ngIf="!!control.password.errors.minlength"><small class="red">Password must be atleast 8 character
+                long.</small></div> -->
+                        <!-- <div *ngIf="!!control.password.errors?.pattern && !control.password.errors.minlength"><small class="red">Password is to weak.</small></div> -->
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label class="pl-1" for="confpassword">Conform Password</label>
+                    <input type="password" class="form-control" formControlName="confpassword" placeholder="Enter password again">
+                    <div *ngIf="!!control.confpassword.invalid && (!!control.confpassword.dirty || !!control.confpassword.touched)" class="pl-2">
+                        <div *ngIf="!!control.confpassword.errors.required"><small class="red">Password is required.</small></div>
+                        <div *ngIf="!!control.confpassword.errors?.notEqual"><small class="red">Password must be match.</small></div>
+                    </div>
+                </div> -->
+
+                <div class="form-group">
+                    <label class="pl-1" for="contact">Mobile</label>
+                    <input type="contact" class="form-control" formControlName="contact" placeholder="Enter Mobile Number">
+                    <div *ngIf="!!control.contact.invalid && (!!control.contact.dirty || !!control.contact.touched)" class="pl-2">
+                        <div *ngIf="!!control.contact.errors.required"><small class="red">Mobile number is required.</small></div>
+                        <div *ngIf="!!control.contact.errors?.pattern"><small class="red">Enter valid mobile number.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group pl-1">
+                    <input type="submit" class="btn btn-success" value="Register" [disabled]="registrationForm.invalid || submitted" />
+                    <a href="/" class="pl-3">SignIn</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

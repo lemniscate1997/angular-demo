@@ -1,0 +1,10 @@
+#wrapper {
+    padding-left: 200px;
+    margin-left: 0px;
+    margin-top: 60px;
+    transition: all 0.4s ease;
+    &.active {
+        padding-left: 0px;
+        width: 100%;
+    }
+}

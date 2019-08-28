@@ -1,0 +1,42 @@
+<div class="containerMain">
+    <div class="container">
+        <h2 class="center">Select Location</h2>
+        <div class="mx-auto center">
+            <form [formGroup]="locationsForm">
+                <p-dropdown class="formcontrol px-4" optionLabel="name" [options]="countries" formControlName="country">
+                </p-dropdown>
+                <p-dropdown class="formcontrol px-4" optionLabel="name" [options]="selectedStates" formControlName="state">
+                </p-dropdown>
+                <p-dropdown class="formcontrol px-4" optionLabel="name" [options]="selectedCities" formControlName="city">
+                </p-dropdown>
+            </form>
+        </div>
+    </div>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li *ngFor="let city of selectedCities; let i = index" data-target="#demo" [attr.data-slide-to]="i" [class.active]="selectedIndex === i" (click)="setIndex(i)"></li>
+        </ul>
+
+        <div class="carousel-inner">
+            <div *ngFor="let city of selectedCities; let i = index;" [ngClass]="i === 0 ? 'carousel-item active' : 'carousel-item'">
+                <img src={{city.image}} alt="/assets/img/logo.png">
+                <div class="carousel-caption">
+                    <h3>{{city.name}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev" (click)="prevImage()">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next" (click)="nextImage()">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+    <div *ngIf="err" class="noImageErrorDiv">No related images found.</div>
+
+</div>

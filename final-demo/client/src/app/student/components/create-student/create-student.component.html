@@ -1,0 +1,65 @@
+<div class="container-fluid pt-4">
+    <div class="card form mx-auto">
+        <div class="card-body">
+            <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+                <div class="center">
+                    <p><b><u>
+                <h3>{{title}} Student</h3>
+              </u></b></p>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="firstname">FirstName</label>
+                    <input type="firstname" class="form-control" formControlName="firstname" placeholder="Enter First name">
+                    <div *ngIf="!!control.firstname.invalid && (!!control.firstname.dirty || !!control.firstname.touched)" class="pl-2">
+                        <div *ngIf="!!control.firstname.errors.required"><small class="red">FirstName is required.</small></div>
+                        <div *ngIf="!!control.firstname.errors.minlength"><small class="red">FirstName must be atleast 3 character
+                long.</small></div>
+                        <div *ngIf="!!control.firstname.errors.maxlength"><small class="red">FirstName must be atmost 15 character
+                long.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="lastname">LastName</label>
+                    <input type="lastname" class="form-control" formControlName="lastname" placeholder="Enter name">
+                    <div *ngIf="!!control.lastname.invalid && (!!control.lastname.dirty || !!control.lastname.touched)" class="pl-2">
+                        <div *ngIf="!!control.lastname.errors.required"><small class="red">LastName is required.</small></div>
+                        <div *ngIf="!!control.lastname.errors.minlength"><small class="red">LastName must be atleast 3 character
+                long.</small></div>
+                        <div *ngIf="!!control.lastname.errors.maxlength"><small class="red">LastName must be atmost 15 character
+                long.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="dob">DateOfBorth</label>
+                    <input type="date" class="form-control" formControlName="dob" placeholder="Enter birth date">
+                    <div *ngIf="!!control.dob.invalid && (!!control.dob.dirty || !!control.dob.touched)" class="pl-2">
+                        <div *ngIf="!!control.dob.errors.required"><small class="red">BitrthDate is required.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="pl-1" for="gender">Gender</label>
+                    <label class="form-check-label radio">
+            <input class="form-check-input" type="radio" formControlName="gender" value="male">
+            <span class="label-display">Male</span>
+          </label>
+                    <label class="form-check-label radio">
+            <input class="form-check-input" type="radio" formControlName="gender" value="female">
+            <span class="label-display">Female</span>
+          </label>
+                    <div *ngIf="!!control.gender.invalid" class="pl-2">
+                        <div *ngIf="!!control.gender.errors.required"><small class="red">Gender is required.</small></div>
+                    </div>
+                </div>
+
+                <div class="form-group pl-1">
+                    <input type="submit" class="btn btn-success" value="{{title}}" [disabled]="studentForm.invalid || submitted" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

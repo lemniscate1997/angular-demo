@@ -1,0 +1,68 @@
+.menubar {
+    width: 194px;
+    position: fixed;
+    top: 55px;
+    bottom: 0;
+    left: 0px;
+    z-index: 2;
+    background: #6d4d4d;
+    color: white;
+}
+
+.menubar li {
+    list-style-type: none;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+.menubar li:hover {
+    background-color: #846262;
+}
+
+.nav-menu {
+    li {
+        font-size: 14px;
+        padding: 12px;
+        width: 100%;
+        display: block;
+        color: white;
+        transition: all 0.3s ease;
+        a {
+            display: block;
+        }
+        &.nav-active,
+        &:hover {
+            color: #846262;
+            background-color: #d0d0d0;
+        }
+    }
+}
+
+.profile-wrapper {
+    position: relative;
+    background: white;
+}
+
+.profile-overlay {
+    background: white;
+    color: #867b7b;
+    padding: 15px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+
+#nameReplace {
+    text-align: center;
+    margin-top: 25px;
+    color: #867b7b;
+}
+
+#container {
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    background: #ccc7c7a3;
+}

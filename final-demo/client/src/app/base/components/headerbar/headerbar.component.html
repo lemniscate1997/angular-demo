@@ -1,0 +1,15 @@
+<nav class="top-bar pt-2">
+    <div class="mr-auto mt-1 pl-2">
+        <ul class="menu">
+            <li><i class="fa fa-eercast"></i> My Web</li>
+        </ul>
+    </div>
+    <div class="ml-auto pr-4">
+        <ul class="menu">
+            <li class="pt-2 pr-4"><i class="fa fa-user-circle-o"></i> {{user.name}}</li>
+            <li>
+                <div class="button" (click)="logout()">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></div>
+            </li>
+        </ul>
+    </div>
+</nav>

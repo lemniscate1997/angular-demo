@@ -1,0 +1,38 @@
+<div class="container-fluid pt-4">
+    <div class="row">
+        <div class="ml-auto pr-4 pb-3">
+            <div class="primary-button" (click)="create()">Add Student <i class="fa fa-plus"></i></div>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">FirstName</th>
+                            <th scope="col">LastName</th>
+                            <th scope="col">DOB</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students; index as i">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{student.firstname}}</td>
+                            <td>{{student.lastname}}</td>
+                            <td>{{student.dob | date}}</td>
+                            <td>{{student.gender}}</td>
+                            <td>
+                                <a (click)="delete(i)" class="pointer pl-1 pr-2"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                <a (click)="update(i)" class="pointer pl-1 pr-2"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

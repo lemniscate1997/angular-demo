@@ -1,0 +1,71 @@
+.form {
+    width: 50%;
+}
+
+:checked+span {
+    font-weight: bold;
+}
+
+.radio {
+    margin-right: 15px;
+    display: block;
+    cursor: pointer;
+    input {
+        display: none;
+        &+span {
+            $radioSize: 18px;
+            $radioBorder: black;
+            $radioActive: black;
+            height: auto;
+            padding-left: 22px;
+            display: inline;
+            position: relative;
+            &:before,
+            &:after {
+                content: '';
+                width: 18px;
+                height: 18px;
+                display: inline;
+                border-radius: 50%;
+                left: 0;
+                top: 0;
+                position: absolute;
+            }
+            &:before {
+                background: black;
+            }
+            &:after {
+                background: #fff;
+                transform: scale(.78);
+                transition: transform .6s cubic-bezier(.175, .885, .32, 1.4);
+            }
+        }
+        &:checked+span {
+            &:before {
+                transform: scale(1.04);
+                background: black;
+            }
+            &:after {
+                transform: scale(.4);
+                transition: transform .3s ease;
+            }
+        }
+    }
+    &:hover {
+        input {
+            &+span {
+                &:before {
+                    transform: scale(.92);
+                }
+                &:after {
+                    transform: scale(.74);
+                }
+            }
+            &:checked+span {
+                &:after {
+                    transform: scale(.4);
+                }
+            }
+        }
+    }
+}
