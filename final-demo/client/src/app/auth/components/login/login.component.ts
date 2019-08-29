@@ -34,8 +34,17 @@ export class LoginComponent implements OnInit {
         .validateUser(this.loginForm.get('email').value, this.loginForm.get('password').value)
         .subscribe(
           (data) => {
-            localStorage.setItem('user', JSON.stringify(data.user));
-            this.router.navigate(['/dashboard']);
+            if (data.status === 'OK') {
+              localStorage.setItem('user', JSON.stringify(data.user));
+              this.router.navigate(['/dashboard']);
+            } else {
+              window.alert('Invalid username or password');
+              this.submitted = false;
+            }
+          },
+          (error) => {
+            window.alert('error while signup');
+            this.submitted = false;
           }
         );
     }
